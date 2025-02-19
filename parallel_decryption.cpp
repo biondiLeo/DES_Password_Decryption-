@@ -29,7 +29,7 @@ std::string openMPDecryption(const std::string& encrypted_password, const std::s
         std::string local_result;
 #pragma omp for schedule(dynamic, chunk_size)
         for (int i = 0; i < static_cast<int>(password_list.size()); ++i) {
-            if (!found) {  // Check per terminazione anticipata
+            if (!found) {  
                 std::string hash = generateDESHash(password_list[i], salt);
 
                 if (hash == encrypted_password) {
